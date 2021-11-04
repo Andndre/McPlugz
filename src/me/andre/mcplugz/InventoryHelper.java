@@ -7,7 +7,7 @@ import org.bukkit.inventory.PlayerInventory;
 import java.util.HashMap;
 import java.util.Map;
 
-public class InvH {
+public class InventoryHelper {
     /**
      * Checks players Main-hand and Off-hand is Holding @param itemStack or not
      * */
