@@ -19,11 +19,9 @@ public class InventoryHelper {
         return inventory.getItemInOffHand().isSimilar(itemStack);
     }
 
-    // https://bukkit.org/threads/give-a-player-an-item-in-inventory-and-drop-when-full.122005/
     public static void giveItem(Player player, ItemStack itemStack){
         HashMap<Integer, ItemStack> nope = player.getInventory().addItem(itemStack);
-        for(Map.Entry<Integer, ItemStack> entry : nope.entrySet())
-        {
+        for(Map.Entry<Integer, ItemStack> entry : nope.entrySet()){
             player.getWorld().dropItemNaturally(player.getLocation().clone().add(0, .5, 0), entry.getValue());
         }
     }

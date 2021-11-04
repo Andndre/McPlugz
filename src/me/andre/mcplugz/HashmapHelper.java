@@ -12,21 +12,21 @@ import java.util.stream.Collectors;
 
 public class HashmapHelper {
 
-    public static void registerIfNotIncluded(Map<String, Integer> map, String key, Integer value){
+    public static void putIfAbsent(Map<String, Integer> map, String key, Integer value){
 
         if(!map.containsKey(key)){
             map.put(key, value);
         }
     }
 
-    public static void registerIfNotIncluded(Map<Player, Integer> map, Player key, Integer value){
+    public static void putIfAbsent(Map<Player, Integer> map, Player key, Integer value){
 
         if(!map.containsKey(key)){
             map.put(key, value);
         }
     }
 
-    public static void registerIfNotIncluded(Map<Entity, Integer> map, Entity key, Integer value){
+    public static void putIfAbsent(Map<Entity, Integer> map, Entity key, Integer value){
 
         if(!map.containsKey(key)){
             map.put(key, value);
@@ -51,6 +51,7 @@ public class HashmapHelper {
             map.put(key, 0);
         }
     }
+
     public static void putOrReplace(Map<Player, Integer> map, Player key, Integer value, @Nullable Boolean valueZeroAtFirst){
         if(valueZeroAtFirst != null){
             if(!valueZeroAtFirst){
@@ -83,9 +84,8 @@ public class HashmapHelper {
         map.put(key, value);
     }
 
-    public static Map<String, Integer> sortByValue(Map<String, Integer> unSortMap, final boolean order)
-    {
-        List<Map.Entry<String, Integer>> list = new LinkedList<>(unSortMap.entrySet());
+    public static Map<String, Integer> sortByValue(Map<String, Integer> map, final boolean order){
+        List<Map.Entry<String, Integer>> list = new LinkedList<>(map.entrySet());
 
         // Sorting the list based on values
         list.sort((o1, o2) -> order ? o1.getValue().compareTo(o2.getValue()) == 0
